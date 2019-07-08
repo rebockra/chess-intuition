@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+//Foundation import
+@import '~foundation-sites/scss/foundation';
+@include foundation-everything(true);
+
+//Motion-ui
+@import '~motion-ui/motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+@import './app/scss/settings';
+
+//Loading animation
+.heart-shape{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: rgb(18, 165, 30);
+}
+.heart-shape:before,
+.heart-shape:after{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  content: '';
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: rgb(18, 165, 30);
+}
+.heart-shape:before{
+  bottom: 0px;
+  left: -100px;
+}
+.heart-shape:after{
+  top: -100px;
+  right: 0px;
+}
+
+
+//Minor styles
+
+.menu-icon {
+  color: whitesmoke !important;
+  cursor: pointer;
+}
+
+.center-items {
+  align-items: center;
+}
+
+.center {
+  text-align: center;
+}

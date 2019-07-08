@@ -1,0 +1,18 @@
+<div class="cell">
+  <div class="grid-x grid-padding-x">
+
+    <div class="cell medium-3 grid-y grid-padding-y align-middle">
+      <div class="cell medium-4 extra-huge-font">{{ fieldToSelect }}</div>
+      <div class="cell medium-auto" *ngIf="youGotIt"><i class="fa fa-check bolder-green extra-huge-font"></i></div>
+    </div>
+
+    <div class="cell medium-6">
+      <app-board (onFieldSelected)="checkAnswer($event)"></app-board>
+    </div>
+
+    <div class="cell medium-3">
+
+    </div>
+
+  </div>
+</div>
