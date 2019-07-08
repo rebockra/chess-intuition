@@ -5,7 +5,7 @@ import { GameRoutingModule } from './game-routing.module';
 import { BoardComponent } from './board/board.component';
 
 @NgModule({
-  declarations: [GameComponent, BoardComponent],
+  declarations: [],
   imports: [
     CommonModule,
     GameRoutingModule
