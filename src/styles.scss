@@ -11,6 +11,27 @@
 
 @import './app/scss/settings';
 
+
+//global variables
+$ci_darkgrey: rgb(40, 40, 40);
+$ci_smokewhite: rgb(215,215,215);
+
+.ci-darkgrey-background {
+  background-color: $ci_darkgrey !important;
+}
+
+.ci-darkgrey-font {
+  color: $ci_darkgrey !important;
+}
+
+.ci-smokewhite-background {
+  background-color: $ci_smokewhite !important;
+}
+
+.ci-smokewhite-font {
+  color: $ci_smokewhite !important;
+}
+
 //Loading animation
 .heart-shape{
   position: relative;

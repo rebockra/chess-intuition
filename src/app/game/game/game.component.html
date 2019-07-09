@@ -2,8 +2,9 @@
   <div class="grid-x grid-padding-x">
 
     <div class="cell medium-3 grid-y grid-padding-y align-middle">
-      <div class="cell medium-4 extra-huge-font">{{ fieldToSelect }}</div>
-      <div class="cell medium-auto" *ngIf="youGotIt"><i class="fa fa-check bolder-green extra-huge-font"></i></div>
+      <div class="cell medium-4 ci-darkgrey-font extra-huge-font">{{ fieldToSelect }}</div>
+      <div class="cell medium-auto" *ngIf="correctAnswerSelected"><i class="fa fa-fw fa-check bolder-green extra-huge-font"></i></div>
+      <div class="cell medium-auto" *ngIf="wrongAnswerSelected"><i class="fa fa-fw fa-times bolder-red extra-huge-font"></i></div>
     </div>
 
     <div class="cell medium-6">
@@ -11,7 +12,13 @@
     </div>
 
     <div class="cell medium-3">
-
+      <div class="callout">
+        <ul class="no-bullet">
+          <li class="bolder-green">Hits:      {{hits}}</li>
+          <li class="bolder-red">Misses:    {{misses}}</li>
+          <li>Accuracy:  {{accuracy}}%</li>
+        </ul>
+      </div>
     </div>
 
   </div>

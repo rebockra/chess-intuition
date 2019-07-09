@@ -1,13 +1,20 @@
-.black-field {
-  width: 4.5em;
-  height: 4.5em;
-  background-color: rgb(40,40,40);
+$ci_darkgrey: rgb(40, 40, 40);
+$ci_smokewhite: rgb(215,215,215);
+
+.field {
+  width: 4.5vw;
+  height: 9vh;
   cursor: pointer;
 }
 
-.white-field {
-  width: 4.5em;
-  height: 4.5em;
-  background-color: rgb(215,215,215);
-  cursor: pointer;
+.white {
+  background-color: $ci_smokewhite;
+}
+
+.black {
+  background-color: $ci_darkgrey;
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
 }

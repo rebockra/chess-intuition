@@ -1,26 +1,26 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <header class="cell shrink header text-center">
-    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-        <div type="menu-icon" data-toggle="responsive-menu"><i class="fa fa-fw fa-cog"></i></div>
-        <div class="title-bar-title"></div>
+    <div class="title-bar grid-x align-center ci-darkgrey-background" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <div class="cell medium-4 text-left grid-x grid-padding-x">
+          <div class="cell shrink">
+            <span class="secondary" routerLink="landing"><i class="fa fa-home"></i></span>
+          </div>
+          <div class="cell shrink">
+            <span class="success" routerLink="game"><i class="fa fa-play"></i></span>
+          </div>
+        </div>
+        <div class="cell medium-4">
+          <div class="title-bar-title">Feel the board</div>
+        </div>
+        <div class="cell medium-4 text-right">
+            <div type="menu-icon" data-toggle="responsive-menu"><i class="fa fa-fw fa-cog"></i></div>
+        </div>
       </div>
-      <h1 class="h3"></h1>
-      <div class="grid-x grid-padding-x align-center">
-        <div class="cell medium-4">
-         <a class="button secondary" routerLink="landing"><i class="fa fa-home"></i></a>
-        </div>
-        <div class="cell medium-4">
-            <div class="game-title">
-                Feel the board
-            </div>
-        </div>
-        <div class="cell medium-4">
-         <a class="button success" routerLink="game"><i class="fa fa-play"></i></a>
-        </div>
+      <div class="grid-x grid-padding-x grid-padding-y">
+          <div class="cell small-12 font-white">.</div>
       </div>
 </header>
 
-<div class="cell medium-auto grid-y grid-padding-x medium-cell-block-container">
+<div class="cell medium-auto grid-y grid-padding-x horizontal-margins">
     <router-outlet></router-outlet>
 </div>
 

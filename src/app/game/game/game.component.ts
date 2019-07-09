@@ -8,27 +8,42 @@ import { Component, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
   private fields : string[] = [];
-  public youGotIt : boolean = false;
+  public correctAnswerSelected : boolean = false;
+  public wrongAnswerSelected : boolean = false;
   private fieldGenerated : number;
   public fieldToSelect : string;
+
+  public hits : number = 0;
+  public misses : number = 0;
+  public accuracy : number = 0
 
   constructor() { }
 
   ngOnInit() {
     this.initFields();
-    this.fieldGenerated = Math.floor(Math.random() * 64);
-    this.fieldToSelect = this.fields[this.fieldGenerated];
+    this.newRound()
+  }
+
+  public newRound = () => {
+      this.fieldGenerated = Math.floor(Math.random() * 64);
+      this.fieldToSelect = this.fields[this.fieldGenerated];
+      setTimeout(() => {this.correctAnswerSelected = false}, 500);
   }
 
   public checkAnswer = (element: any) : void => {
-    console.log(element);
+    this.correctAnswerSelected = false;
     console.debug("element id: ", element.id);
     console.debug("generated field no: ", this.fieldGenerated);
     if (Number(element.id) === this.fieldGenerated) {
-      this.youGotIt = true;
-      //setTimeout(() => {}, 4000);
-      //this.youGotIt = false;
+      this.correctAnswerSelected = true;
+      this.hits++;
+      this.newRound();
+    } else {
+      this.wrongAnswerSelected = true;
+      this.misses++;
+      setTimeout(() => {this.wrongAnswerSelected = false;}, 1000)
     }
+    this.misses > 0 ? this.accuracy = (this.hits / (this.misses + this.hits)) * 100 : this.accuracy = this.hits * 100;
   }
 
   private initFields = () : void => {

@@ -5,8 +5,9 @@ import { GameComponent } from './game/game/game.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo :'game', pathMatch : 'full'},
+  { path: 'game', component: GameComponent},
   { path: 'landing', component: LandingComponent},
-  { path: 'game', component: GameComponent}
   //{ path: 'game', loadChildren: 'src/app/game/game.module#GameModule'}
 ];
 
