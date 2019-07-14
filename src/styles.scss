@@ -1,16 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 //Foundation import
-@import '~foundation-sites/scss/foundation';
-@include foundation-everything(true);
-
-//Motion-ui
-@import '~motion-ui/motion-ui';
-@include motion-ui-transitions;
-@include motion-ui-animations;
+@import '../node_modules/foundation-sites/scss/foundation.scss';
+@import '../node_modules/foundation-sites/assets/foundation.scss';
 
 @import './app/scss/settings';
 
+@include foundation-everything(true ,$prototype: true);
 
 //global variables
 $ci_darkgrey: rgb(40, 40, 40);
@@ -80,3 +76,34 @@ $ci_smokewhite: rgb(215,215,215);
 .center {
   text-align: center;
 }
+
+.active {
+  border: solid 1px white;
+}
+
+.display-none {
+  display: none;
+}
+
+.bolder-green {
+  color: green;
+  font-weight: bolder;
+}
+
+.bolder-red {
+  color: red;
+  font-weight: bolder;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.center-items {
+  align-items: center;
+}
+
+.extra-huge-font {
+  font-size: 4em;
+}
+

@@ -1,1 +1,23 @@
-<p>landing works!</p>
+<div class="grid-x grid-padding-x align-center extra-horizontal-margins">
+  <div class="cell small-12">
+    <div [@landingAnimation]="isDefined ? 'start' : 'end'" class="callout">
+      <h1 class="h2">Chess-Intuition</h1>
+      <span>
+        A minimal web app for chess enthusiasts who want to be able to navigate a chess board intuitively.
+
+        In a fast paced game of chess you don't want to be thinking about how to translate move-instructions like "Knight to F4" into real action. You just want to make the move as swiftly as possible and win the moment.
+
+        This application will help you build the intuition necessary to do just that. Enjoy! :)
+      </span>
+    </div>
+
+    <div class="callout display-none">
+      <ul class="no-bullet">
+        <li><a href="">GitHub</a><li>
+        <li><a href="">GitLab</a><li>
+        <li><a href="">LinkedIn</a></li>
+      </ul>
+    </div>
+    <button class="button margin-top-3" (click)="toggle()">Who built it?</button>
+  </div>
+</div>

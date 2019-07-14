@@ -3,8 +3,12 @@ $ci_smokewhite: rgb(215,215,215);
 
 .field {
   width: 4.5vw;
-  height: 9vh;
+  height: 4.5vw;
   cursor: pointer;
+}
+
+.field:hover {
+  background-color: green;
 }
 
 .white {

@@ -2,17 +2,20 @@
     <div class="title-bar grid-x align-center ci-darkgrey-background" data-responsive-toggle="responsive-menu" data-hide-for="medium">
         <div class="cell medium-4 text-left grid-x grid-padding-x">
           <div class="cell shrink">
-            <span class="secondary" routerLink="landing"><i class="fa fa-home"></i></span>
+            <span class="" routerLink="landing" routerLinkActive="active" title="About the App"><i class="fa fa-fw fa-home"></i></span>
           </div>
           <div class="cell shrink">
-            <span class="success" routerLink="game"><i class="fa fa-play"></i></span>
+            <span class="" routerLink="game" routerLinkActive="active" title="Play the game, build your intuiton"><i class="fa fa-fw fa-play"></i></span>
           </div>
+          <div class="cell shrink">
+              <span class="" routerLink="gameanimated" routerLinkActive="active" title="Play the game with experimental animations"><i class="fa fa-fw fa-heartbeat"></i></span>
+            </div>
         </div>
         <div class="cell medium-4">
           <div class="title-bar-title">Feel the board</div>
         </div>
         <div class="cell medium-4 text-right">
-            <div type="menu-icon" data-toggle="responsive-menu"><i class="fa fa-fw fa-cog"></i></div>
+            <div type="menu-icon" data-toggle="responsive-menu" title="Options"><i class="fa fa-fw fa-cog"></i></div>
         </div>
       </div>
       <div class="grid-x grid-padding-x grid-padding-y">
@@ -21,7 +24,9 @@
 </header>
 
 <div class="cell medium-auto grid-y grid-padding-x horizontal-margins">
-    <router-outlet></router-outlet>
+    <div [@routeAnimations]="prepareRoute(outlet)" >
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
 </div>
 
 <footer class="cell shrink hide-for-small-only footer grid-x grid-padding-x align-right">

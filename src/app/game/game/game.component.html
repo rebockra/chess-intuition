@@ -1,24 +1,52 @@
 <div class="cell">
   <div class="grid-x grid-padding-x">
-
-    <div class="cell medium-3 grid-y grid-padding-y align-middle">
-      <div class="cell medium-4 ci-darkgrey-font extra-huge-font">{{ fieldToSelect }}</div>
-      <div class="cell medium-auto" *ngIf="correctAnswerSelected"><i class="fa fa-fw fa-check bolder-green extra-huge-font"></i></div>
-      <div class="cell medium-auto" *ngIf="wrongAnswerSelected"><i class="fa fa-fw fa-times bolder-red extra-huge-font"></i></div>
+    <div class="cell small-6 medium-3 grid-y align-middle">
+      <div class="cell medium-4 ci-darkgrey-font extra-huge-font margin-bottom-2" title="Select this field on the chess board to score points">
+          <div data-toggler data-animate="fade-in fade-out" class="callout secondary" id="fieldContainer">
+              {{ fieldToSelect }}
+            </div>
+        </div>
+      <div class="cell medium-auto margin-top-2" *ngIf="correctAnswerSelected"><i class="fa fa-fw fa-check bolder-green extra-huge-font"></i></div>
+      <div class="cell medium-auto margin-top-2" *ngIf="wrongAnswerSelected"><i class="fa fa-fw fa-times bolder-red extra-huge-font"></i></div>
+      <div class="cell medium-auto">
+        <button class="" data-toggle="fieldContainer" #fieldToSelectRef></button>
+      </div>
     </div>
 
-    <div class="cell medium-6">
+    <div class="cell small-6 margin-bottom-3">
       <app-board (onFieldSelected)="checkAnswer($event)"></app-board>
     </div>
 
-    <div class="cell medium-3">
+    <div class="cell small-12 medium-3">
       <div class="callout">
         <ul class="no-bullet">
           <li class="bolder-green">Hits:      {{hits}}</li>
           <li class="bolder-red">Misses:    {{misses}}</li>
-          <li>Accuracy:  {{accuracy}}%</li>
+          <li>Accuracy:  {{accuracy | percent}}</li>
         </ul>
       </div>
+      <div class="callout display-none">
+          <ul class="accordion" data-accordion data-allow-all-closed="true">
+            <li class="accordion-item" data-accordion-item>
+              <h2 class="h5"><i class="far fa-clock"></i> Foundation animation test</h2>
+              <a class="accordion-title acc-work-title">Accordion 1</a>
+
+
+              <div class="accordion-content" data-tab-content>
+                <p>Panel 1. Lorem ipsum dolor</p>
+                <a href="#">Nowhere to Go</a>
+                <button class="button success" data-toggle="fader">Alt ui trigger</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="callout display-none">
+          <button class="button success" data-toggle="fader">motion-ui test</button>
+          <div data-toggler data-animate="" class="callout secondary" id="fader">
+            <p>This panel fades.</p>
+          </div>
+        </div>
     </div>
 
   </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+declare var $ : any;
 
 @Component({
   selector: 'app-game',
@@ -17,17 +18,20 @@ export class GameComponent implements OnInit {
   public misses : number = 0;
   public accuracy : number = 0
 
+  @ViewChild('fieldToSelectRef', {static: false}) fieldToSelectRef: ElementRef;
+
   constructor() { }
 
   ngOnInit() {
     this.initFields();
     this.newRound()
+    $(document).foundation();
   }
 
   public newRound = () => {
       this.fieldGenerated = Math.floor(Math.random() * 64);
       this.fieldToSelect = this.fields[this.fieldGenerated];
-      setTimeout(() => {this.correctAnswerSelected = false}, 500);
+      this.correctAnswerSelected = false;
   }
 
   public checkAnswer = (element: any) : void => {
@@ -36,14 +40,23 @@ export class GameComponent implements OnInit {
     console.debug("generated field no: ", this.fieldGenerated);
     if (Number(element.id) === this.fieldGenerated) {
       this.correctAnswerSelected = true;
+      setTimeout(() =>  {
+        this.fieldToSelectRef.nativeElement.click();
+          setTimeout(() => {
+            this.newRound();
+              setTimeout(() => {
+                this.fieldToSelectRef.nativeElement.click();
+              }, 450)
+          }, 500)
+        }, 400);
       this.hits++;
-      this.newRound();
+
     } else {
       this.wrongAnswerSelected = true;
       this.misses++;
       setTimeout(() => {this.wrongAnswerSelected = false;}, 1000)
     }
-    this.misses > 0 ? this.accuracy = (this.hits / (this.misses + this.hits)) * 100 : this.accuracy = this.hits * 100;
+    this.misses > 0 ? (this.accuracy = (this.hits / (this.misses + this.hits))).toFixed(2) : this.accuracy = 1;
   }
 
   private initFields = () : void => {

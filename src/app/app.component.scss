@@ -1,4 +1,6 @@
-@import '../app/scss/settings';
+.title-bar {
+  display: flex !important;
+}
 
 .game-title {
   color: green;
