@@ -9,6 +9,7 @@ import { BoardComponent } from './game/board/board.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { GameAnimatedComponent } from './game/game-animated/game-animated.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { GameAnimatedComponent } from './game/game-animated/game-animated.compon
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

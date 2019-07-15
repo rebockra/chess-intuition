@@ -12,7 +12,7 @@ declare var $: any;
       state('final', style({ backgroundColor: '#EB0048' })),
 
       transition('initial => final', [
-        animate('5000ms 2700ms', keyframes([
+        animate('5000ms 2500ms', keyframes([
           style({ backgroundColor: 'rgb(255,255,255' }),
           style({ backgroundColor: '#008008' }),
           style({ backgroundColor: '#0081FF' }),
@@ -26,8 +26,7 @@ export class GameAnimatedComponent implements OnInit {
   private fields: string[] = [];
   public correctAnswerSelected: boolean = false;
   public wrongAnswerSelected: boolean = false;
-  public initialRound: boolean = true;
-  public manualReset: boolean = false;
+  public eventFireCount: number = 0;
 
   private fieldGenerated: number;
   public fieldToSelect: string;
@@ -42,11 +41,12 @@ export class GameAnimatedComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     this.initFields();
     $(document).foundation();
     this.newRound();
-    this.initialRound = true;
-    //console.debug("onInit", this.currentState);
+    document.documentElement.style['filter'] = 'invert(100%)';
+    document.documentElement.style['background-color'] = 'white';
   }
 
   public newRound() {
@@ -56,12 +56,10 @@ export class GameAnimatedComponent implements OnInit {
   }
 
   public checkAnswer(element: any): void {
-    this.correctAnswerSelected = false;
-    // console.debug("element id: ", element.id);
-    // console.debug("generated field no: ", this.fieldGenerated);
     if (Number(element.id) === this.fieldGenerated) {
+      this.currentState = 'initial';
+      this.toggleAnimation();
       this.handleCorrectAnswer();
-
     } else {
       this.handleWrongAnswer();
     }
@@ -70,22 +68,14 @@ export class GameAnimatedComponent implements OnInit {
 
   public handleWrongAnswer(): void {
     this.wrongAnswerSelected = true;
-    console.debug("handlewrong before", this.misses)
-    if (this.initialRound) {
-      this.initialRound = false;
-      setTimeout(() => { this.wrongAnswerSelected = false; }, 1000);
-      return;
-    }
     this.misses++;
     setTimeout(() => { this.wrongAnswerSelected = false; }, 1000);
-    console.debug("handlewrong after", this.misses)
     this.calculateAccuracy();
   }
 
   public handleCorrectAnswer(): void {
     this.correctAnswerSelected = true;
-    this.manualReset = true;
-
+    this.eventFireCount = 1;
     setTimeout(() => {
       this.fieldToSelectRef.nativeElement.click();
       setTimeout(() => {
@@ -99,39 +89,25 @@ export class GameAnimatedComponent implements OnInit {
   }
 
   public toggleAnimation() {
-    //console.debug("toggleAnim Before", this.currentState);
     if (this.currentState === 'initial') {
       this.currentState = 'final';
     } else {
       this.currentState = 'initial';
     }
-    console.debug("toggle animation before", this.misses)
-    if ((this.misses === 0 && this.currentState === 'initial')) {
-      this.misses++;
-    }
-    console.debug("toggle animation after", this.misses)
-
-    //console.debug("toggleAnim After", this.currentState);
   }
 
-  public resetFieldToSelectAnimation() {
-    if (this.manualReset === true) {
-      this.toggleAnimation();
-      this.manualReset = false;
-      return;
-    } else {
-      if (this.misses > 0) {
+  public resetFieldToSelectAnimation(event: any) {
+    console.debug("resetField", this.currentState);
+    console.log(event);
+    // workaround for currently unfixed angular bug calling done callback twice
+    this.eventFireCount++;
+    console.debug("firecount", this.eventFireCount);
+    if (this.eventFireCount % 2 === 1 && this.eventFireCount !== 1 && this.eventFireCount !== 2) {
+        this.toggleAnimation();
         this.handleWrongAnswer();
-        this.newRound();
-        this.toggleAnimation();
-        //this.manualReset = true;
-      } else {
-        //this.newRound()
-        this.toggleAnimation();
-      }
+    } else {
+      this.toggleAnimation();
     }
-
-
   }
 
   public calculateAccuracy(): void {

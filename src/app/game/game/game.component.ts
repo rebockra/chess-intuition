@@ -26,6 +26,7 @@ export class GameComponent implements OnInit {
     this.initFields();
     this.newRound()
     $(document).foundation();
+    document.documentElement.style['filter'] = 'invert(0%)';
   }
 
   public newRound = () => {

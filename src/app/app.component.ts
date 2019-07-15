@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { slideInAnimation } from './animations/animations'
+import { slideInAnimation } from './animations/animations';
+
 
 declare var $: any;
 @Component({
@@ -11,7 +12,9 @@ declare var $: any;
 })
 export class AppComponent {
 
-  constructor() {}
+
+
+  constructor() { }
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
@@ -20,4 +23,5 @@ export class AppComponent {
   ngOnInit() {
     $(document).foundation();
   }
+
 }
