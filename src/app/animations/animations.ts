@@ -14,80 +14,79 @@ export const transAnimation = animation([
 
 // Routable animations
 export const slideInAnimation =
-  trigger('routeAnimations', [
-    transition('LandingPage <=> GamePage', [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%'
-        })
-      ]),
-      query(':enter', [
-        style({ left: '-100%'})
-      ]),
-      query(':leave', animateChild(), {optional: true}),
-      group([
-        query(':leave', [
-          animate('700ms ease-out', style({ left: '100%'}))
-        ], {optional: true}),
-        query(':enter', [
-          animate('700ms ease-out', style({ left: '0%'}))
-        ], {optional: true})
-      ]),
-      query(':enter', animateChild()),
+trigger('routeAnimations', [
+  transition('LandingPage <=> GamePage', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+      })
     ]),
-    transition('GamePage <=> GameAnimationPage', [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%'
-        })
-      ]),
-      query(':enter', [
-        style({ left: '-100%'})
-      ]),
-      query(':leave', animateChild(), {optional: true}),
-      group([
-        query(':leave', [
-          animate('700ms ease-out', style({ left: '100%'}))
-        ], {optional: true}),
-        query(':enter', [
-          animate('700ms ease-out', style({ left: '0%'}))
-        ], {optional: true})
-      ]),
-      query(':enter', animateChild()),
+    query(':enter', [
+      style({ left: '-100%'})
     ]),
-    transition('* <=> LandingPage', [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%'
-        })
-      ]),
+    query(':leave', animateChild(), {optional: true}),
+    group([
+      query(':leave', [
+        animate('700ms ease-out', style({ left: '100%'}))
+      ], {optional: true}),
       query(':enter', [
-        style({ left: '-100%'})
-      ]),
-      query(':leave', animateChild(), {optional: true}),
-      group([
-        query(':leave', [
-          animate('700ms ease-out', style({ left: '100%'}))
-        ], {optional: true}),
-        query(':enter', [
-          animate('700ms ease-out', style({ left: '0%'}))
-        ], {optional: true})
-      ]),
-      query(':enter', animateChild()),
+        animate('700ms ease-out', style({ left: '0%'}))
+      ], {optional: true})
     ]),
-
+    query(':enter', animateChild()),
+  ]),
+  transition('GamePage <=> GameAnimationPage', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+      })
+    ]),
+    query(':enter', [
+      style({ left: '-100%'})
+    ]),
+    query(':leave', animateChild(), {optional: true}),
+    group([
+      query(':leave', [
+        animate('700ms ease-out', style({ left: '100%'}))
+      ], {optional: true}),
+      query(':enter', [
+        animate('700ms ease-out', style({ left: '0%'}))
+      ], {optional: true})
+    ]),
+    query(':enter', animateChild()),
+  ]),
+  transition('* <=> LandingPage', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+      })
+    ], {optional: true}),
+    query(':enter', [
+      style({ left: '-100%'})
+    ], {optional: true}),
+    query(':leave', animateChild(), {optional: true}),
+    group([
+      query(':leave', [
+        animate('700ms ease-out', style({ left: '100%'}))
+      ], {optional: true}),
+      query(':enter', [
+        animate('700ms ease-out', style({ left: '0%'}))
+      ], {optional: true})
+    ]),
+    query(':enter', animateChild(), {optional: true}),
+  ]),
 
 
   ]);

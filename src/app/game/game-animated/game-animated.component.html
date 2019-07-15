@@ -4,7 +4,7 @@
         <div class="cell medium-4 ci-darkgrey-font extra-huge-font margin-bottom-2" title="Select this field on the chess board to score points">
             <div data-toggler data-animate="fade-in fade-out" class="callout"
             [@changeFieldColor]="currentState"
-            (@changeFieldColor.done)="resetFieldToSelectAnimation()" id="fieldContainer">
+            (@changeFieldColor.done)="resetFieldToSelectAnimation($event)" id="fieldContainer">
                 {{ fieldToSelect }}
               </div>
           </div>
@@ -12,7 +12,6 @@
         <div class="cell medium-auto margin-top-2" *ngIf="wrongAnswerSelected"><i class="fa fa-fw fa-times bolder-red extra-huge-font"></i></div>
         <div class="cell medium-auto">
           <button class="" data-toggle="fieldContainer" #fieldToSelectRef></button>
-          <button class="button warning" (click)="toggleAnimation()">toggleAnimation</button>
         </div>
       </div>
 
@@ -28,29 +27,7 @@
             <li>Accuracy:  {{accuracy | percent}}</li>
           </ul>
         </div>
-        <div class="callout display-none">
-            <ul class="accordion" data-accordion data-allow-all-closed="true">
-              <li class="accordion-item" data-accordion-item>
-                <h2 class="h5"><i class="far fa-clock"></i> Foundation animation test</h2>
-                <a class="accordion-title acc-work-title">Accordion 1</a>
 
-
-                <div class="accordion-content" data-tab-content>
-                  <p>Panel 1. Lorem ipsum dolor</p>
-                  <a href="#">Nowhere to Go</a>
-                  <button class="button success" data-toggle="fader">Alt ui trigger</button>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="callout display-none">
-            <button class="button success" data-toggle="fader">motion-ui test</button>
-            <div data-toggler data-animate="" class="callout secondary" id="fader">
-              <p>This panel fades.</p>
-            </div>
-          </div>
-      </div>
 
     </div>
   </div>

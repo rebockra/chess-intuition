@@ -107,3 +107,20 @@ $ci_smokewhite: rgb(215,215,215);
   font-size: 4em;
 }
 
+.inverted {
+	filter: invert(100%) !important;
+}
+
+.horizontal-margins {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.horizontal-padding {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.hover {
+  cursor: pointer;
+}

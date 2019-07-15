@@ -18,19 +18,17 @@
             <div type="menu-icon" data-toggle="responsive-menu" title="Options"><i class="fa fa-fw fa-cog"></i></div>
         </div>
       </div>
-      <div class="grid-x grid-padding-x grid-padding-y">
-          <div class="cell small-12 font-white">.</div>
-      </div>
 </header>
 
-<div class="cell medium-auto grid-y grid-padding-x horizontal-margins">
-    <div [@routeAnimations]="prepareRoute(outlet)" >
+<div class="cell medium-auto grid-y grid-padding-x horizontal-padding padding-top-3">
+    <div [@routeAnimations]="prepareRoute(outlet)" class="">
         <router-outlet #outlet="outlet"></router-outlet>
       </div>
 </div>
 
 <footer class="cell shrink hide-for-small-only footer grid-x grid-padding-x align-right">
     <div class="cell auto">
+
       </div>
       <div class="cell auto text-right">
           <a href="">Datenschutz</a> |

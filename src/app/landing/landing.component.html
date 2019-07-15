@@ -1,6 +1,6 @@
 <div class="grid-x grid-padding-x align-center extra-horizontal-margins">
   <div class="cell small-12">
-    <div [@landingAnimation]="isDefined ? 'start' : 'end'" class="callout">
+    <div [@landingAnimation]="isDefined ? 'start' : 'end'" (@landingAnimation.done)="toggleAutherReveal()" class="callout">
       <h1 class="h2">Chess-Intuition</h1>
       <span>
         A minimal web app for chess enthusiasts who want to be able to navigate a chess board intuitively.
@@ -11,13 +11,22 @@
       </span>
     </div>
 
-    <div class="callout display-none">
-      <ul class="no-bullet">
-        <li><a href="">GitHub</a><li>
-        <li><a href="">GitLab</a><li>
-        <li><a href="">LinkedIn</a></li>
-      </ul>
+    <div [@revealAutherInfo]='revealStatus' class="callout display-none">
+      <div class="grid-y grid-padding-y">
+        <div class="cell medium-4">
+          <h1 class="h2"><i class="fa fa-fw fa-user-o font-bold"></i>René Bockrandt</h1>
+        </div>
+        <div class="cell medium-auto margin-left-3
+         padding-left-3">
+          <ul class="no-bullet font-bold">
+              <li><a class="hover" href="https://www.linkedin.com/in/rene-bockrandt"><i class="fa fa-fw fa-linkedin-square marign-right-2"></i>LinkedIn - How to contact me</a></li>
+            <li><a class="hover" href="https://github.com/rebockra/"><i class="fa fa-fw fa-github marign-right-2"></i>GitHub - A link to the repo holding the code for this application</a></li>
+            <li><a class="hover" href="https://gitlab.rlp.net/rbockran/moodlerdr/"><i class="fa fa-fw fa-gitlab marign-right-2"></i>GitLab - A repo containing the results of my Bachelor's thesis in computer science </a></li>
+          </ul>
+        </div>
+
+      </div>
     </div>
-    <button class="button margin-top-3" (click)="toggle()">Who built it?</button>
+    <button class="button success margin-top-3" (click)="toggle()">About?</button>
   </div>
 </div>
