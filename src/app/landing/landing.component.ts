@@ -88,23 +88,6 @@ import { normalizeGenFileSuffix } from '@angular/compiler/src/aot/util';
           ]))
         ]),*/
       ])
-      /*
-      transition('start => end', [
-        animate('3s', keyframes([
-          style({ backgroundColor: 'white', offset: 0}),
-          style({ backgroundColor: 'red', offset: 0.2}),
-          style({ backgroundColor: 'blue', offset: 1.0})
-        ])),
-      ]),
-      transition('end => start', [
-        animate('3s', keyframes([
-          style({ backgroundColor: 'white', offset: 0}),
-          style({ backgroundColor: 'red', offset: 0.2}),
-          style({ backgroundColor: 'blue', offset: 1.0})
-        ])),
-      ]),
-      */
-
   ]
 })
 

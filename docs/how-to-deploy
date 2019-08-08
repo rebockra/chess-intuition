@@ -1,2 +1,0 @@
-ng build --prod --base-href "https://rebockra.github.io/chess-intuition"
-npx ngh --dir dist/chess-intuition --no-silent

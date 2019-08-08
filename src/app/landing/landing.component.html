@@ -1,6 +1,6 @@
 <div class="grid-x grid-padding-x align-center extra-horizontal-margins">
   <div class="cell small-12">
-    <div [@landingAnimation]="isDefined ? 'start' : 'end'" (@landingAnimation.done)="toggleAutherReveal()" class="callout">
+    <div [@landingAnimation]="isDefined ? 'start' : 'end'" (@landingAnimation.done)="toggleAutherReveal()" class="callout margin-top-3">
       <h1 class="h2">Chess-Intuition</h1>
       <span>
         A minimal web app for chess enthusiasts who want to be able to navigate a chess board intuitively.
@@ -12,21 +12,44 @@
     </div>
 
     <div [@revealAutherInfo]='revealStatus' class="callout display-none">
-      <div class="grid-y grid-padding-y">
-        <div class="cell medium-4">
-          <h1 class="h2"><i class="fa fa-fw fa-user-o font-bold"></i>René Bockrandt</h1>
+      <div class="grid-y grid-padding-y extra-width">
+        <div class="cell medium-4 padding-top-2 padding-left-2">
+          <h1 class="h2"><i class="fa fa-fw fa-user-circle-o font-bold"></i> René Bockrandt</h1>
         </div>
         <div class="cell medium-auto margin-left-3
          padding-left-3">
           <ul class="no-bullet font-bold">
-              <li><a class="hover" href="https://www.linkedin.com/in/rene-bockrandt"><i class="fa fa-fw fa-linkedin-square marign-right-2"></i>LinkedIn - How to contact me</a></li>
-            <li><a class="hover" href="https://github.com/rebockra/"><i class="fa fa-fw fa-github marign-right-2"></i>GitHub - A link to the repo holding the code for this application</a></li>
-            <li><a class="hover" href="https://gitlab.rlp.net/rbockran/moodlerdr/"><i class="fa fa-fw fa-gitlab marign-right-2"></i>GitLab - A repo containing the results of my Bachelor's thesis in computer science </a></li>
+            <li class="padding-top-1 padding-bottom-1">
+              <div class="grid-x align-left">
+                  <div class="cell medium-3">
+                    <i class="fa fa-fw fa-linkedin-square"></i> LinkedIn
+                  </div>
+                <div class="cell medium-auto"><a class="hover" href="https://www.linkedin.com/in/rene-bockrandt">How to contact me</a></div>
+              </div>
+            </li>
+            <li class="padding-top-1 padding-bottom-1">
+                <div class="grid-x align-left">
+                  <div class="cell medium-3">
+                    <i class="fa fa-fw fa-github"></i> GitHub
+                  </div>
+                  <div class="cell medium-auto"><a class="hover" href="https://github.com/rebockra/chess-intuition">Link to the repo containing the code of this application</a>
+                  </div>
+                </div>
+            </li>
+            <li class="padding-top-1 padding-bottom-1">
+                <div class="grid-x align-left">
+                  <div class="cell medium-3">
+                    <i class="fa fa-fw fa-gitlab"></i> GitLab
+                  </div>
+                  <div class="cell medium-auto"><a class="hover" href="https://gitlab.rlp.net/rbockran/moodlerdr/">A repo containing the results of my recent Bachelor's thesis</a>
+                  </div>
+                </div>
+            </li>
           </ul>
         </div>
 
       </div>
     </div>
-    <button class="button success margin-top-3" (click)="toggle()">About?</button>
+    <button class="button success inverted font-bold" (click)="toggle()">About the author</button>
   </div>
 </div>
